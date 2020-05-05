@@ -1,0 +1,14 @@
+// Creando nodos
+CREATE (doom:Juego{name:'DOOM Eternal'}), (es:Idioma{name:'Español-España'}),
+      (la:Idioma{name:'Español-Latinoamerica'}), (ing:Idioma{name:'Ingles'}),
+      (unj:Modalidad{name:'Un Jugador'}), (multi:Modalidad{name:'Multiplayer'}),
+      (acc:Genero{name:'Accion'}), (ave:Genero{name:'Aventura'}),
+      (tr:Juego{name:'Tomb Rider'})
+
+// Creando relaciones
+CREATE
+  (doom)-[:DisponibleEn]->(la), (doom)-[:DisponibleEn]->(es), (doom)-[:DisponibleEn]->(ing),
+  (tr)-[:DisponibleEn]->(es), (tr)-[:DisponibleEn]->(ing),
+  (doom)-[:PerteneceA]->(acc), (tr)-[:PerteneceA]->(ave),
+  (tr)-[:PerteneceA]->(acc), (doom)-[:SePuedeJugar]->(multi), (doom)-[:SePuedeJugar]->(unj),
+  (tr)-[:SePuedeJugar]->(unj), (tr)-[:SePuedeJugar]->(multi);
